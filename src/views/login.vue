@@ -14,7 +14,7 @@
                     </a-input>
                     <!--<a-input v-model: value="loginForm.code" placeholder="验证码"/>--></a-form-item>
                 <a-form-item>
-                    <a-button type="primary" block html-type="submit">登录</a-button>
+                    <a-button type="primary" block html-type="submit" @click="login">登录</a-button>
                 </a-form-item>
             </a-form>
         </a-col>
@@ -22,18 +22,59 @@
 </template>
 <script setup>
 import { reactive } from "vue";
+import axios from "axios";
+import { notification } from "ant-design-vue";
+import { useRouter } from "vue-router";
+import store from "@/store";
+
+const router = useRouter();
 
 const loginForm = reactive({
-    mobile: "13000000000",
-    code: "",
+  mobile: "13951905171",
+  code: "8888",
 });
+
 const onFinish = (values) => {
-    console.log("Success: ", values);
-};
+  console.log("Success:", values);
+}
+
 const onFinishFailed = (errorInfo) => {
-    console.log("Failed : ", errorInfo);
+  console.log("Failed:", errorInfo);
+}
+
+const sendCode = () => {
+  axios
+    .post("/member/member/send-code",{
+      mobile: loginForm.mobile,
+  })
+  .then((response) => {
+    console.log(response);
+    let data = response.data;
+    if (data.success) {
+      notification.success({ description: "验证码发送成功！" });
+      loginForm.code = "8888";
+    } else {
+      notification.error({ description: data.message });
+    }
+  });
 };
-</script >
+
+const login = () => {
+  axios.post("/member/member/login", loginForm).then((response) => {
+    let data = response.data;
+    if (data.success) {
+      notification.success({ description: "登录成功！" });
+      console.log("登录成功：", data.content);
+      // 登录成功，跳转到控台主页
+      router.push("/");
+      store.commit("setMember", data.content);
+    } else {
+      notification.error({ description: data.message });
+    }
+  })
+};
+</script>
+
 <style scoped>
 .login-main h1 {
     font-size: 25px;
