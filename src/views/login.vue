@@ -78,7 +78,7 @@
         notification.success({ description: "登录成功！" });
         console.log("登录成功：", data.content);
         // 登录成功，跳转到控台主页
-        router.push("/");
+        router.push("/welcome");
         store.commit("setMember", data.content);
       } else {
         notification.error({ description: data.message });
