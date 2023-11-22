@@ -253,7 +253,7 @@ const genSeat = (record) => {
                 notification.error({ description: data.message });
             }
         });
-    ;
+};
 
     onMounted(() => {
         handleQuery({
