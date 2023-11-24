@@ -12,6 +12,26 @@ const routes = [
       {
         path: 'about',
         component: () => import('../views/main/about.vue')
+      },{
+        path: 'business/',
+        children: [
+          {
+            path: 'daily-train',
+            component: () => import('../views/main/business/daily-train.vue')
+          },
+          {
+            path: 'daily-train-station',
+            component: () => import('../views/main/business/daily-train-station.vue')
+          },
+          {
+            path: 'daily-train-carriage',
+            component: () => import('../views/main/business/daily-train-carriage.vue')
+          },
+          {
+            path: 'daily-train-seat',
+            component: () => import('../views/main/business/daily-train-seat.vue')
+          }
+        ]
       },
       {
         path: 'base/',
