@@ -24,14 +24,18 @@
           <span>
             <UnorderedListOutlined/>
             业务管理
-
           </span>
         </template>
+        <a-menu-item key="/business/daily-train-ticket">
+          <router-link to="/business/daily-train-ticket">
+            <MenuUnfoldOutlined/>
+            余票信息
+          </router-link>
+        </a-menu-item>
         <a-menu-item key="/business/daily-train">
           <router-link to="/business/daily-train">
             <MenuUnfoldOutlined/>
             每日车次
-
           </router-link>
         </a-menu-item>
         <a-menu-item key="/business/daily-train-station">
@@ -52,9 +56,21 @@
             每日座位
           </router-link>
         </a-menu-item>
-
       </a-sub-menu>
-
+      <a-sub-menu key="stu">
+        <template #title>
+          <span>
+            <UnorderedListOutlined/>
+            学生管理
+          </span>
+        </template>
+        <a-menu-item key="/stu/stx-stu">
+          <router-link to="/stu/stx-stu">
+            <MenuUnfoldOutlined/>
+            软件2242
+          </router-link>
+        </a-menu-item>
+      </a-sub-menu>
       <a-sub-menu key="batch">
         <template #title>
           <span>
