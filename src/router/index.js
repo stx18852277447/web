@@ -30,6 +30,11 @@ const routes = [
             component: () => import("../views/main/business/daily-train.vue"),
           },
           {
+            path: "sk-token",
+            component: () =>
+              import("../views/main/business/sk-token.vue"),
+          },
+          {
             path: "daily-train-station",
             component: () =>
               import("../views/main/business/daily-train-station.vue"),
@@ -65,6 +70,10 @@ const routes = [
           {
             path: "train",
             component: () => import("../views/main/base/train.vue"),
+          },
+          {
+            path: "student",
+            component: () => import("../views/main/base/student.vue"),
           },
           {
             path: "train-station",

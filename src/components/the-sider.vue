@@ -35,12 +35,18 @@
             业务管理
           </span>
         </template>
+        <a-menu-item key="/business/sk-token">
+          <router-link to="/business/sk-token">
+            <MenuUnfoldOutlined />
+            令牌余量
+          </router-link>
+        </a-menu-item>
         <a-menu-item key="/business/confirm-order">
           <router-link to="/business/confirm-order">
             <MenuUnfoldOutlined />
             订单信息
           </router-link>
-        </a-menu-item>
+        </a-menu-item> 
         <a-menu-item key="/business/daily-train-ticket">
           <router-link to="/business/daily-train-ticket">
             <MenuUnfoldOutlined />
@@ -111,6 +117,12 @@
           <router-link to="/base/station">
             <car-outlined />
             车站管理
+          </router-link>
+        </a-menu-item>
+        <a-menu-item key="/base/student">
+          <router-link to="/base/student">
+            <car-outlined />
+            学生信息
           </router-link>
         </a-menu-item>
         <a-menu-item key="/base/train">
